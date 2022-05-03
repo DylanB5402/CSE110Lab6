@@ -16,19 +16,19 @@ public class Exercises {
         for (int number : numbers) {
             sum += number;
         }
-        return sum / numbers.size();
+        return (double) sum / (double) numbers.size();
     }
 
     public static double standardDeviation(List<Integer> numbers) {
         double mean = mean(numbers);
 
-        int deviationSum = 0;
+        float deviationSum = 0;
         for (int number : numbers) {
-            deviationSum += Math.pow(mean - number, 2);
+            deviationSum += Math.pow(number - mean, 2);
         }
 
         int length = numbers.size();
-        float variance = deviationSum / length;
+        float variance = (float) deviationSum / length;
         return Math.sqrt(variance);
     }
 
