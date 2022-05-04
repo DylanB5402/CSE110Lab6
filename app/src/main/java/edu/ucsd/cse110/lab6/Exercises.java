@@ -1,5 +1,6 @@
 package edu.ucsd.cse110.lab6;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -41,7 +42,11 @@ public class Exercises {
         Pattern re = Pattern.compile("('|'s)?[.,;]?[\\s\\n]", Pattern.MULTILINE);
         Stream<String> wordStream = re.splitAsStream(input);
         Set<String> excludedWords = Constants.excludedWords;
+        List<String> s = wordStream.map(String::toLowerCase)
+                .filter(word -> !excludedWords.contains(word))
+                .filter(word -> word.length() == 6)
+                .collect(Collectors.toList());
+        return s.size();
 
-        return 0;
     }
 }
