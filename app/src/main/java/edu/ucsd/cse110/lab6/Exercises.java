@@ -47,6 +47,5 @@ public class Exercises {
                 .filter(word -> word.length() == 6)
                 .collect(Collectors.toList());
         return s.size();
-
     }
 }
